@@ -38,3 +38,9 @@ let aPackage = {
     //  2.4.5  => 2.4.5
   },
 };
+
+//check exact dependency version
+/*
+    npm list
+    npm list --depth=0
+*/
