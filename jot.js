@@ -44,3 +44,12 @@ let aPackage = {
     npm list
     npm list --depth=0
 */
+
+//Viewing registry info for a package
+/*
+    npm view <package> eg npm view underscore
+    npm view <package> <property>
+    npm view underscore dependencies
+    npm view underscore devDependencies
+    npm view underscore versions
+*/
