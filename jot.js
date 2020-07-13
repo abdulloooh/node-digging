@@ -62,3 +62,9 @@ let aPackage = {
     ncu -u to upgrade package.json
     npm i to install update node_modules with the upgraded package.json
 */
+
+//dev dependencies
+//with flag --save-dev
+
+//remove package
+//npm un <package-name>  un or uninstall
