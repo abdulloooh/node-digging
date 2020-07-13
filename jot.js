@@ -68,3 +68,27 @@ let aPackage = {
 
 //remove package
 //npm un <package-name>  un or uninstall
+
+//working with global package
+/*
+  all previous commands work with it e g
+  npm -g outdated
+*/
+
+//starting a new project that uses dependencies
+/*-- 
+    ---
+      ---
+      npm init
+      npm init --yes to accept default config
+      ---
+    ---
+  ---
+*/
+
+//publish package
+//npm publish
+
+//updated published package
+//npm version <level>  level can be major, minor or patch
+//npm publish

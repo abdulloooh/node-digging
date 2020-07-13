@@ -1,5 +1,5 @@
 {
-  "name": "npm-demo",
+  "name": "node-app-with-my-published-pkg",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,11 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.9.23",
-    "npm-check-updates": "^7.0.1",
-    "underscore": "^1.10.2"
-  },
-  "devDependencies": {
-    "jshint": "^2.11.1"
+    "speed-math": "^1.1.0"
   }
 }
