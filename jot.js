@@ -53,3 +53,12 @@ let aPackage = {
     npm view underscore devDependencies
     npm view underscore versions
 */
+
+//Updating Local packages
+/*
+    npm outdated 
+    npm update will update minor changes alone, not entire package
+    npm i -g npm-check-updates  or simply npm-check-updates or more simply  ncu
+    ncu -u to upgrade package.json
+    npm i to install update node_modules with the upgraded package.json
+*/
