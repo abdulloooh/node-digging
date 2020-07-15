@@ -92,3 +92,10 @@ let aPackage = {
 //updated published package
 //npm version <level>  level can be major, minor or patch
 //npm publish
+
+
+//set and get env variable
+/*
+  To set:   export <varName> = <varValue> eg export PORT = 4000
+  To get:   process.env.<varName> eg process.env.PORT
+*/
