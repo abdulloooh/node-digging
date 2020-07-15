@@ -99,3 +99,6 @@ let aPackage = {
   To set:   export <varName> = <varValue> eg export PORT = 4000
   To get:   process.env.<varName> eg process.env.PORT
 */
+
+//query string parameter are used for addtional non-essential information or optional to the server
+//route parameters for essentials
