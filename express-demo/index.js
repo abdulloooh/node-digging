@@ -1,10 +1,18 @@
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const config = require("config");
 const Joi = require("@hapi/joi");
 const logger = require("./logger");
 const auth = require("./auth");
 const app = express();
+
+// Configuration
+console.log(config.get("name"));
+console.log(config.get("mail.host"));
+console.log(config.get("bank.name"));
+console.log(config.get("bank.acc"));
+console.log(config.get("mail.express-pass"));
 
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`); //returns undefined if NODE_ENV not set
 console.log(`app: ${app.get("env")}`); //returns 'development' if NODE_ENV not set

@@ -1,0 +1,10 @@
+{
+  "name": "My Express Demo -development",
+  "mail": {
+    "host": "localhost"
+  },
+  "bank": {
+    "name": "Abdullah Oladipo",
+    "acc": "0172599355"
+  }
+}

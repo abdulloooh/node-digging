@@ -1,0 +1,10 @@
+{
+  "name": "My Express Demo -production",
+  "mail": {
+    "host": "heroku-bla-bla-bla"
+  },
+  "bank": {
+    "name": "Abdullah Oladipo",
+    "acc": "0172599355"
+  }
+}
