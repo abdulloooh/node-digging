@@ -93,7 +93,6 @@ let aPackage = {
 //npm version <level>  level can be major, minor or patch
 //npm publish
 
-
 //set and get env variable
 /*
   To set:   export <varName> = <varValue> eg export PORT = 4000
@@ -102,3 +101,14 @@ let aPackage = {
 
 //query string parameter are used for addtional non-essential information or optional to the server
 //route parameters for essentials
+
+//An express Application is nth but a bunch of middleware fcns
+/*
+  Middleware functions consitute Request Processing Pipeline
+  A middleware function takes a request from the client, process it, then hands over
+    the control to the next middleware function or terminate the pipeline and return response to client
+  Example of first is json() middleware of express that takes in request, search for json object 
+  in the body of the req, pass it into a json obj and use it to set req.body,
+    then passes the control over (to maybe route)
+  Example of second is route handler (the (req,res)=>{}), takes the req, process and return to client
+*/
