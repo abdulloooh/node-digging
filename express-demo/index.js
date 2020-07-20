@@ -32,26 +32,50 @@ app.get("/api/courses/:year/:month/:id", (req, res) => {
 });
 
 app.post("/api/courses", (req, res) => {
-  const schema = Joi.string().min(3).required().label("name");
-  // Joi object is more appropriate for defining validation for large data
-
-  const { name } = req.body;
-
-  const result = schema.validate(name);
-
-  if (result.error) {
-    res.status(400).send(result.error.details[0].message);
-    return;
-  }
+  const { error } = courseValidate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
   const course = {
     id: courses.length + 1,
-    name: name,
+    name: req.body.name,
   };
 
   courses.push(course);
   res.send(course);
 });
+
+app.put("/api/courses/:id", (req, res) => {
+  let course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course)
+    return res.status(404).send("The requested course is not available");
+
+  const { error } = courseValidate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  course.name = req.body.name;
+  return res.send(course);
+});
+
+app.delete("/api/courses/:id", (req, res) => {
+  let course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course)
+    return res.status(404).send("The requested course is not available");
+
+  // courses = courses.filter((c) => c.id !== req.params.id);
+  //this didnt work bcos courses is a const var to prevent being changed unintentionall
+  //lets take another approach
+
+  courses.splice(courses.indexOf(course), 1);
+
+  return res.send(course);
+});
+
+function courseValidate(course) {
+  const schema = Joi.object({
+    name: Joi.string().min(3).required(),
+  });
+  return schema.validate(course);
+}
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
