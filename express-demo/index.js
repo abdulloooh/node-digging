@@ -1,9 +1,26 @@
 const express = require("express");
+const helmet = require("helmet");
+const morgan = require("morgan");
 const Joi = require("@hapi/joi");
-
+const logger = require("./logger");
+const auth = require("./auth");
 const app = express();
 
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`); //returns undefined if NODE_ENV not set
+console.log(`app: ${app.get("env")}`); //returns 'development' if NODE_ENV not set
+
+app.use(helmet());
+if (app.get("env") !== "production") {
+  app.use(morgan("tiny"));
+  console.log("morgan enabled...");
+}
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
+app.use(logger);
+
+app.use(auth);
 
 const courses = [
   { id: 1, name: "course A" },

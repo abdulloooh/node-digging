@@ -111,4 +111,17 @@ let aPackage = {
   in the body of the req, pass it into a json obj and use it to set req.body,
     then passes the control over (to maybe route)
   Example of second is route handler (the (req,res)=>{}), takes the req, process and return to client
+
+  Finally, express already came with some bunch of middlewares, e.g. express.json()
 */
+
+//Built in middlewares
+/*
+  express.json() for json payload
+  express.urlencoded({extended:true}) for parding urlencoded payloads
+  express.static(<directory name>) for serving files statically
+*/
+
+//Custom middlewares can be created
+//third party middleware can be used likewise like helmet and morgan
+//you can get environment by app.get("env") or with process.env.NODE_ENV
