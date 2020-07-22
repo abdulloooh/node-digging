@@ -20,6 +20,9 @@ debug(config.get("mail.express-pass"));
 debug(`NODE_ENV: ${process.env.NODE_ENV}`); //returns undefined if NODE_ENV not set
 debug(`app: ${app.get("env")}`); //returns 'development' if NODE_ENV not set
 
+app.set("view engine", "pug");
+// app.set("views", "./views");
+
 app.use(helmet());
 if (app.get("env") !== "production") {
   app.use(morgan("tiny"));
@@ -38,6 +41,14 @@ const courses = [
   { id: 2, name: "course B" },
   { id: 3, name: "course C" },
 ];
+
+app.get("/pug", (req, res) => {
+  res.render("index", {
+    title: "pug",
+    heading: "Hello from Pug 👋 ",
+    message: "This rendering is from pug templating",
+  });
+});
 
 app.get("/", (req, res) => res.send("Hello world"));
 

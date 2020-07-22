@@ -147,3 +147,8 @@ DEBUG=<so so> nodemon index.js
 
 //to seperate logs, give it a namespace and assign it to a different variable
 */
+
+//templating engine
+/*
+Pug, Mustache, EJS etc
+*/
