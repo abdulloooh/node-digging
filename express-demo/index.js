@@ -1,3 +1,6 @@
+const debug = require("debug")("app:index");
+// const failLog = require("debug")("app:fail");s
+// const portLog = require("debug");
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
@@ -8,19 +11,19 @@ const auth = require("./auth");
 const app = express();
 
 // Configuration
-console.log(config.get("name"));
-console.log(config.get("mail.host"));
-console.log(config.get("bank.name"));
-console.log(config.get("bank.acc"));
-console.log(config.get("mail.express-pass"));
+debug(config.get("name"));
+debug(config.get("mail.host"));
+debug(config.get("bank.name"));
+debug(config.get("bank.acc"));
+debug(config.get("mail.express-pass"));
 
-console.log(`NODE_ENV: ${process.env.NODE_ENV}`); //returns undefined if NODE_ENV not set
-console.log(`app: ${app.get("env")}`); //returns 'development' if NODE_ENV not set
+debug(`NODE_ENV: ${process.env.NODE_ENV}`); //returns undefined if NODE_ENV not set
+debug(`app: ${app.get("env")}`); //returns 'development' if NODE_ENV not set
 
 app.use(helmet());
 if (app.get("env") !== "production") {
   app.use(morgan("tiny"));
-  console.log("morgan enabled...");
+  debug("morgan enabled...");
 }
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -103,4 +106,4 @@ function courseValidate(course) {
 }
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}...`));
+app.listen(port, () => debug(`Listening on port ${port}...`));

@@ -125,3 +125,25 @@ let aPackage = {
 //Custom middlewares can be created
 //third party middleware can be used likewise like helmet and morgan
 //you can get environment by app.get("env") or with process.env.NODE_ENV
+
+//configuration
+/*
+default.json  I don't like this
+development.json
+production.json
+custom-environment-variables.json
+export sensitive vars from terminal and map under custom-encodeURI...
+*/
+
+//Debug: Easily distinguish various debugging messages
+/*
+export DEBUG=<a namespace>
+export DEBUG=< namespace>,<second namespace>
+export DEBUG=*
+export DEBUG=<a prefix>:* eg app:*   "wild card"
+unset DEBUG or export DEBUG=
+
+DEBUG=<so so> nodemon index.js
+
+//to seperate logs, give it a namespace and assign it to a different variable
+*/
