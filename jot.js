@@ -151,4 +151,5 @@ DEBUG=<so so> nodemon index.js
 //templating engine
 /*
 Pug, Mustache, EJS etc
+create a "views" directory
 */
