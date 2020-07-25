@@ -25,11 +25,21 @@ async function createCourse() {
   return await course.save();
 }
 
-createCourse().then((result) => console.log(result));
+// createCourse().then((result) => console.log(result));
+
+async function getCourses() {
+  const courses = await Course.find({ author: "Abdullah", isPublished: true })
+    .limit(10)
+    .sort({ name: 1 });
+  // .select({ tags: 1 });
+  console.log(courses);
+}
+
+getCourses();
 
 //Other Schema types are String, Number, ObjectID, Date, Buffer, Boolean, Array
-
 //Initialize Mongoose with conn string
 //Define Schema
 //Create Class Model   => Will serve as collection name  =>'s' will be auto added, i.e plural form
 //Make objects from the classes => Every instants made from it will be data inside the model collection
+//Retrieve document from mongodb
