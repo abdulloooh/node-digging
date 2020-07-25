@@ -28,11 +28,20 @@ async function createCourse() {
 // createCourse().then((result) => console.log(result));
 
 async function getCourses() {
-  const courses = await Course.find({ author: "Abdullah", isPublished: true })
-    .limit(10)
-    .sort({ name: 1 });
-  // .select({ tags: 1 });
-  console.log(courses);
+  try {
+    const courses = await Course.find({
+      $or: [{ author: "Abdullah" }, { name: "Mango" }],
+      price: { $gt: 10 },
+      price: { $gte: 10, $lte: 20 },
+      price: { $in: [10, 20, 30] },
+    })
+      .limit(10)
+      .sort({ name: 1 });
+    // .select({ tags: 1 });
+    console.log(courses);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 getCourses();
@@ -43,3 +52,16 @@ getCourses();
 //Create Class Model   => Will serve as collection name  =>'s' will be auto added, i.e plural form
 //Make objects from the classes => Every instants made from it will be data inside the model collection
 //Retrieve document from mongodb
+
+//Comparison Query Operators
+/*
+    eq =
+    ne !=
+    gt >
+    gte >=
+    lt <
+    lte <=
+    in
+    nin not in
+    or
+*/
