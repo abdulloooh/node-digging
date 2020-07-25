@@ -153,3 +153,17 @@ DEBUG=<so so> nodemon index.js
 Pug, Mustache, EJS etc
 create a "views" directory
 */
+
+//Async
+// Callback
+// Promises
+// Await
+//Callback Hell (Nested callback)
+//Named functions to rescue
+//A promise promise to give you the result of an opeartion when it is done
+//3 states=> Pending(when created) => Fulfilled(resolved)  [otherwise]  Rejected(error)
+//with the use of .then and .catch
+//Running promises in parallel with Promise static methods like all() and race()
+//creating settled PROMISE
+//You can create an already resolved or already rejected with Promise static methods resolve() and reject()
+//try and catch to handle error in async-await method

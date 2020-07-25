@@ -12,4 +12,3 @@ const p = new Promise((resolve, reject) => {
 p.then((result) => console.log(result)).catch(({ message }) =>
   console.log(message)
 );
-//   .finally(() => console.log("completed"));
