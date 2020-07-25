@@ -154,10 +154,10 @@ Pug, Mustache, EJS etc
 create a "views" directory
 */
 
-//Async
-// Callback
-// Promises
-// Await
+//Async                                                       E
+// Callback                                                     RR
+// Promises                                                         OR
+// Await                                                                OBJECT
 //Callback Hell (Nested callback)
 //Named functions to rescue
 //A promise promise to give you the result of an opeartion when it is done
@@ -167,3 +167,11 @@ create a "views" directory
 //creating settled PROMISE
 //You can create an already resolved or already rejected with Promise static methods resolve() and reject()
 //try and catch to handle error in async-await method
+
+//MongoDB
+//Compass is just a client application for connecting to mongo server
+//which is probably installed on system or hosted on cloud
+//Mongo Atlas is the cloud management tools which gives the capability to create cluster
+//A cluster created in Atlas can be accessed from Compass
+//connection string     mongodb://localhost/<db_name>
+//Relational database and Document database (NoSQL)
