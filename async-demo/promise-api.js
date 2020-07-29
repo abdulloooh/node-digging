@@ -26,11 +26,11 @@ const r = new Promise((resolve, reject) => {
 //When both async calls are completed
 //all static mtd will reject as error if any of them reject error
 Promise.all([q, r])
-  .then((result) => console.log(result))
+  .then((result) => console.log("from all", result))
   .catch((err) => console.log(err));
 
 //The first async call completed
 //all static mtd will reject if only the first completed rejected error
 Promise.race([q, r])
-  .then((result) => console.log(result))
+  .then((result) => console.log("from race", result))
   .catch((err) => console.log(err));

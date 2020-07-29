@@ -11,11 +11,11 @@ console.log(1);
 async function displayCommits() {
   try {
     const { githubUsername } = await getUser(2);
-    const repos = await getCommits(githubUsername);
+    const repos = await getGithubRepo(githubUsername);
     const commits = await getCommits(repos[0]);
     console.log(commits);
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 }
 
@@ -27,8 +27,8 @@ function getUser(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Reading a user from database");
-      //   resolve({ id: id, githubUsername: "abdulloooh" });
-      reject(new Error("error because..."));
+      resolve({ id: id, githubUsername: "abdulloooh" });
+      // reject(new Error("error because..."));
     }, 1000);
   });
 }
@@ -42,11 +42,12 @@ function getGithubRepo(username) {
   });
 }
 
-function getCommits(repo, callback) {
-  return new Promise((resolve) => {
+function getCommits(repo) {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Fetching commits for " + repo);
-      resolve(["a", "b"]);
+      // resolve(["a", "b"]);
+      reject(new Error("sth terrible"));
     }, 1000);
   });
 }

@@ -25,7 +25,7 @@ function getGithubRepo(username) {
   });
 }
 
-function getCommits(repo, callback) {
+function getCommits(repo) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("Fetching commits for " + repo);

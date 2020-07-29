@@ -50,9 +50,9 @@ async function getCourses() {
 
 getCourses();
 
-//Other Schema types are String, Number, ObjectID, Date, Buffer, Boolean, Array
 //Initialize Mongoose with conn string
 //Define Schema
+//Schema types are String, Number, ObjectID, Date, Buffer, Boolean, Array
 //Create Class Model   => Will serve as collection name  =>'s' will be auto added, i.e plural form
 //Make objects from the classes => Every instants made from it will be data inside the model collection
 //Retrieve document from mongodb
