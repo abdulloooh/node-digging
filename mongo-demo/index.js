@@ -30,15 +30,18 @@ async function createCourse() {
 async function getCourses() {
   try {
     const courses = await Course
-      .find
+      // .find({author: /^Abd/i})
+      // .find({ author: /llah$/ })
+      .find({ author: /.*llah.*/ })
+      // .find
       //     {
       //   $or: [{ author: "Abdullah" }, { name: "Mango" }],
       //   price: { $gt: 10 },
       //   price: { $gte: 10, $lte: 20 },
       //   price: { $in: [10, 20, 30] },
       // }
-      ()
-      .or([{ author: "Abdullah" }, { name: "Mango" }])
+      // ()
+      // .or([{ author: "Abdullah" }, { name: "Mango" }])
       .limit(10)
       .sort({ name: 1 });
     // .select({ tags: 1 });
