@@ -28,23 +28,34 @@ async function createCourse() {
 // createCourse().then((result) => console.log(result));
 
 async function getCourses() {
+  const pageNumber = 2,
+    pageSize = 1; //used for pagination
+
   try {
     const courses = await Course
+      //find with RegEx
       // .find({author: /^Abd/i})
       // .find({ author: /llah$/ })
-      .find({ author: /.*llah.*/ })
-      // .find
+      // .find({ author: /.*llah.*/ })
+
+      .find
       //     {
       //   $or: [{ author: "Abdullah" }, { name: "Mango" }],
       //   price: { $gt: 10 },
       //   price: { $gte: 10, $lte: 20 },
       //   price: { $in: [10, 20, 30] },
       // }
-      // ()
+      ()
       // .or([{ author: "Abdullah" }, { name: "Mango" }])
-      .limit(10)
+
+      //pagination
+      .skip((pageNumber - 1) * pageSize)
+      .limit(pageSize)
+
+      // .limit(10)
       .sort({ name: 1 });
     // .select({ tags: 1 });
+    // .count();
     console.log(courses);
   } catch (error) {
     console.log(error);
