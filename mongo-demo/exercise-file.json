@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "5a68fdc3615eda645bc6dec",
+    "tags": ["ASP", "backend"],
+    "date": "2018-01-24T21:42:59.605Z",
+    "name": "ASP.NET MVC Course",
+    "author": "Mosh",
+    "isPublished": true,
+    "price": 20
+  },
+  {
+    "_id": "5a68fdc3615eda645bc6777",
+    "tags": ["express", "backend"],
+    "date": "2019-01-24T21:42:59.605Z",
+    "name": "Express.js Course",
+    "author": "Mosh",
+    "isPublished": false,
+    "price": 30
+  },
+  {
+    "_id": "5a68fdc3615eda645bc617e",
+    "tags": ["node", "backend"],
+    "date": "2018-03-24T21:42:59.605Z",
+    "name": "Node.js Course",
+    "author": "Jack",
+    "isPublished": true,
+    "price": 20
+  },
+  {
+    "_id": "5a68fdc3615eda645bc6ddd",
+    "tags": ["react", "frontend"],
+    "date": "2018-01-24T23:42:59.605Z",
+    "name": "React.js",
+    "author": "Abdullah",
+    "isPublished": false,
+    "price": 45
+  },
+  {
+    "_id": "5a68fdc3615eda645bc6b9c",
+    "tags": ["vue", "frontend"],
+    "date": "2018-01-24T21:42:59.605Z",
+    "name": "Vue.js",
+    "author": "Abdullah",
+    "isPublished": true,
+    "price": 30
+  },
+  {
+    "_id": "5a68fdc3615eda645bc6b54",
+    "tags": ["nothing", "UX"],
+    "date": "2020-01-24T21:42:59.605Z",
+    "name": "nothing.js",
+    "author": "Evan",
+    "isPublished": false,
+    "price": 50
+  },
+  {
+    "_id": "5a68fdc3615eda645bc6b01",
+    "tags": ["everything", "UX"],
+    "date": "2018-01-24T21:42:59.605Z",
+    "name": "everything.js",
+    "author": "Evan",
+    "isPublished": true,
+    "price": 45
+  }
+]

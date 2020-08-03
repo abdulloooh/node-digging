@@ -175,3 +175,11 @@ create a "views" directory
 //A cluster created in Atlas can be accessed from Compass
 //connection string     mongodb://localhost/<db_name>
 //Relational database and Document database (NoSQL)
+
+//Import json objects into database
+/*
+  mongoimport --db mongo-exercises --collection courses --file exercie-data.json --jsonArray
+*/
+
+//To sort with case insensitivity
+//Add ".collation({local:"en"})"
