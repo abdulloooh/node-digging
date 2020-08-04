@@ -5,7 +5,8 @@ mongoose
   .then(() => console.log("connected to mongo-exercise database"));
 
 /*
-    Get all the published backend courses, sort them by their name, pick only name and author and display them
+  Get all the published frontend and backend courses, sort them by their price in a descending order, 
+  pick only their name and author, and display them
 */
 const courseSchema = mongoose.Schema({
   tags: [String],
@@ -19,14 +20,14 @@ const courseSchema = mongoose.Schema({
 const Course = mongoose.model("course", courseSchema);
 
 async function getCourses() {
-  try {
-    return await Course.find({ isPublished: true, tags: "backend" })
-      .collation({ locale: "en" })
-      .sort({ name: 1 })
-      .select({ name: 1, author: 1 });
-  } catch (error) {
-    console.log(error);
-  }
+  return await Course.find({
+    isPublished: true,
+    // tags: { $in: ["frontend", "backend"] },
+    $or: [{ tags: "frontend" }, { tags: "backend" }],
+    //tags:['frontend','backend'] //this will not work for this question as it will go and find exact
+  })
+    .sort("-price")
+    .select("name author price");
 }
 
 getCourses().then((result) => console.log(result));
