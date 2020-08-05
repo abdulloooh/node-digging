@@ -25,8 +25,6 @@ async function createCourse() {
   return await course.save();
 }
 
-// createCourse().then((result) => console.log(result));
-
 async function getCourses() {
   const pageNumber = 2,
     pageSize = 1; //used for pagination
@@ -106,10 +104,27 @@ async function updateCourse_updateFirst(id) {
   return course;
 }
 
+async function removeCourse(id) {
+  return await Course.findByIdAndDelete(id);
+  /*
+  Course.deleteOne({a:a_value})
+  Course.deleteMany({a:a_value})
+  ----both of them returns only report and not deleted objects
+
+  use findBy...Delete/Remove to get back deleted stuffs
+  */
+}
+
+// createCourse().then((result) => console.log(result));
+
 // getCourses();
 
-updateCourse_updateFirst("5f1bfacf5cea264f7eea7f3e")
-  .then((course) => console.log(course))
+// updateCourse_updateFirst("5f1bfacf5cea264f7eea7f3e")
+//   .then((course) => console.log(course))
+//   .catch((err) => console.log(err));
+
+removeCourse("5f1bfacf5cea264f7eea7f3e")
+  .then((course) => console.log("deleted", course))
   .catch((err) => console.log(err));
 
 //Initialize Mongoose with conn string

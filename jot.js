@@ -209,3 +209,12 @@ create a "views" directory
   Class.findByIdAndUpdate(id, {})  //to get prev state of the updated doc
   Class.findByIdAndUpdate(id, {}, {new:true}) //to get new state of the updated doc
 */
+
+//For removing/deleting object
+/*
+  Course.deleteOne({a:a_value})
+  Course.deleteMany({a:a_value})
+  ----both of them returns only report and not deleted objects
+
+  use findBy...Delete/Remove to get back deleted stuffs
+*/
