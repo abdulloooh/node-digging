@@ -62,7 +62,55 @@ async function getCourses() {
   }
 }
 
-getCourses();
+async function updateCourse_queryFirst(id) {
+  //query first approach
+  const course = await Course.findById(id);
+  if (!course) return;
+
+  // course.isPublished = false;
+  // course.author = "Another author";
+
+  course.set({
+    isPublished: true,
+    author: "Another Laplace",
+  });
+
+  return await course.save();
+}
+
+async function updateCourse_updateFirst(id) {
+  //update first approach
+
+  // const result = await Course.update(
+  //   //can pass unique ppt like _id:id and change one
+  //   { isPublished: false }, //or generic ppt like isPublished and change many at once
+  //   {
+  //     $set: {
+  //       author: "Abdullah",
+  //       // isPublished: false,
+  //     },
+  //   }
+  // );
+
+  const course = await Course.findByIdAndUpdate(
+    id,
+    {
+      $set: {
+        author: "powe",
+        isPublished: false,
+      },
+    },
+    { new: true } //to return latest update and not formal
+  );
+
+  return course;
+}
+
+// getCourses();
+
+updateCourse_updateFirst("5f1bfacf5cea264f7eea7f3e")
+  .then((course) => console.log(course))
+  .catch((err) => console.log(err));
 
 //Initialize Mongoose with conn string
 //Define Schema

@@ -183,3 +183,29 @@ create a "views" directory
 
 //To sort with case insensitivity
 //Add ".collation({local:"en"})"
+
+//2 Approaches for update with mongoose
+/*
+  -Query first
+    *Find the course using findById
+    *Modity its properties
+    *save()
+  -Update first
+   *Update directy
+   *Optionally: get updated document
+*/
+
+//For Update first
+/*
+  const result = Class.update({_id:id} , {
+    //use any of mongodb update operators => they include $set, $inc, $max , $dec, $unset etc
+    $set:{
+      key : value ...
+    }
+  })
+
+  result here is the update report
+
+  Class.findByIdAndUpdate(id, {})  //to get prev state of the updated doc
+  Class.findByIdAndUpdate(id, {}, {new:true}) //to get new state of the updated doc
+*/
