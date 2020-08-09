@@ -19,7 +19,17 @@ const courseSchema = new mongoose.Schema({
     },
   },
   category: { type: String, enum: ["art", "tech", "food", "travel"] },
-  tags: [String],
+  // tags: [String],
+  tags: {
+    type: Array,
+    required: true,
+    validate: {
+      validator: function (v) {
+        return v && v[0] && v.length > 0;
+      },
+      message: "There should be at least a tag",
+    },
+  },
   date: { type: Date, default: Date.now },
   isPublished: Boolean,
   price: { type: Number, min: 50, max: 100 },
@@ -32,7 +42,7 @@ async function createCourse() {
     name: "not small",
     author: "Yellow",
     category: "tech",
-    tags: ["berry", "straw"],
+    tags: ["first"],
     isPublished: true,
     price: 100,
   });

@@ -227,3 +227,11 @@ create a "views" directory
   Arrow fcn won't work here as it doesn't have it is own this, it will inherit the calling fcn
   or the global object and not the method we are requiring
 */
+
+//Custom Validators
+/*
+  passing extra object "validate" with method "validator" that returns boolean, 
+  validate obj can also has message property that returns as error msg if error
+  make sure the incoming value is truthy, check the first element of the incoming if it is array also
+  because empty string is casted into array (if expected is Array) and appear as if an element is present
+*/
