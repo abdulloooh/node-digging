@@ -218,3 +218,12 @@ create a "views" directory
 
   use findBy...Delete/Remove to get back deleted stuffs
 */
+
+//Built in validators
+/*
+  Required, [minlength, maxlength, match(for regex)] for string, [min,max] for Number and date
+  enum to select between predefined values
+  Required can be direct boolean or a function that evaluates for another property and return boolean
+  Arrow fcn won't work here as it doesn't have it is own this, it will inherit the calling fcn
+  or the global object and not the method we are requiring
+*/

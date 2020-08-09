@@ -80,10 +80,10 @@ async function updateCourse_updateFirst(id) {
   //update first approach
 
   // const result = await Course.update(
-  //   //can pass unique ppt like _id:id and change one
+  //   //can pass unique ppt like {_id:id} and change one
   //   { isPublished: false }, //or generic ppt like isPublished and change many at once
   //   {
-  //     $set: {
+  //     $set: {   //use mongodb update operators
   //       author: "Abdullah",
   //       // isPublished: false,
   //     },
