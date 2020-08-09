@@ -242,3 +242,8 @@ create a "views" directory
   which is an object with keys being path of the value (eg name, title)
   so, can be looped over with the keys to get any property
 */
+
+//Other SchemaTypeObject_options
+/*
+  lowercase , uppercase, trim, get , set
+*/

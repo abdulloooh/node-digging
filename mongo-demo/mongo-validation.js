@@ -10,14 +10,17 @@ const courseSchema = new mongoose.Schema({
     unique: true,
     required: true,
     minlength: 5,
-    maxlength: 10,
+    maxlength: 100,
     // match: /pattern/,
+    lowercase: true,
   },
   author: {
     type: String,
     required: function () {
       return this.isPublished;
     },
+    uppercase: true,
+    trim: true,
   },
   category: { type: String, enum: ["art", "tech", "food", "travel"] },
   // tags: [String],
@@ -38,19 +41,25 @@ const courseSchema = new mongoose.Schema({
   },
   date: { type: Date, default: Date.now },
   isPublished: Boolean,
-  price: { type: Number, min: 50, max: 100 },
+  price: {
+    type: Number,
+    min: 50,
+    max: 100,
+    get: (v) => Math.round(v),
+    set: (v) => Math.round(v),
+  },
 });
 
 const Course = mongoose.model("course", courseSchema);
 
 async function createCourse() {
   const course = new Course({
-    name: "not small",
+    name: "rounding prices",
     author: "Yellow",
     category: "tech",
-    tags: [],
+    tags: [1, 2],
     isPublished: true,
-    price: 100,
+    price: 100.15,
   });
 
   try {
