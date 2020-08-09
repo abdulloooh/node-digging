@@ -7,6 +7,7 @@ mongoose
 const courseSchema = new mongoose.Schema({
   name: {
     type: String,
+    unique: true,
     required: true,
     minlength: 5,
     maxlength: 10,
@@ -23,8 +24,14 @@ const courseSchema = new mongoose.Schema({
   tags: {
     type: Array,
     validate: {
-      validator: function (v) {
-        return v && v[0] && v.length > 0;
+      isAsync: true,
+      validator: function (v, callback) {
+        //Do some Async work
+        setTimeout(() => {
+          let result = v && v[0] && v.length > 0;
+          result = result ? result : false;
+          callback(result);
+        }, 1000);
       },
       message: "There should be at least a tag",
     },
@@ -38,10 +45,10 @@ const Course = mongoose.model("course", courseSchema);
 
 async function createCourse() {
   const course = new Course({
-    // name: "not small",
+    name: "not small",
     author: "Yellow",
-    category: "-",
-    tags: ["a"],
+    category: "tech",
+    tags: [],
     isPublished: true,
     price: 100,
   });
@@ -57,8 +64,8 @@ async function createCourse() {
     return result;
   } catch (ex) {
     for (field in ex.errors) {
-      console.log(ex.errors[field]); //look up several availe properties that can be get eg message below
-      // console.log(ex.errors[field].message);
+      // console.log(ex.errors[field]); //look up several availe properties that can be get eg message below
+      console.log(ex.errors[field].message);
     }
   }
 }
