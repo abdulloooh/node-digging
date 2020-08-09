@@ -235,3 +235,10 @@ create a "views" directory
   make sure the incoming value is truthy, check the first element of the incoming if it is array also
   because empty string is casted into array (if expected is Array) and appear as if an element is present
 */
+
+//getting more info validation errors
+/*
+  ex from exception has ppt errors => ex.errors
+  which is an object with keys being path of the value (eg name, title)
+  so, can be looped over with the keys to get any property
+*/

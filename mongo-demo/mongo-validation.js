@@ -22,7 +22,6 @@ const courseSchema = new mongoose.Schema({
   // tags: [String],
   tags: {
     type: Array,
-    required: true,
     validate: {
       validator: function (v) {
         return v && v[0] && v.length > 0;
@@ -39,10 +38,10 @@ const Course = mongoose.model("course", courseSchema);
 
 async function createCourse() {
   const course = new Course({
-    name: "not small",
+    // name: "not small",
     author: "Yellow",
-    category: "tech",
-    tags: ["first"],
+    category: "-",
+    tags: ["a"],
     isPublished: true,
     price: 100,
   });
@@ -57,7 +56,10 @@ async function createCourse() {
     console.log(result);
     return result;
   } catch (ex) {
-    console.log(ex.message);
+    for (field in ex.errors) {
+      console.log(ex.errors[field]); //look up several availe properties that can be get eg message below
+      // console.log(ex.errors[field].message);
+    }
   }
 }
 createCourse();
