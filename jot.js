@@ -247,3 +247,19 @@ create a "views" directory
 /*
   lowercase , uppercase, trim, get , set
 */
+
+//Refactoring
+/*
+  seperate functions into models and keep routers only in route file
+*/
+
+//Modelling Relationships
+/* 
+  DocumentA DocumentB
+  -Using References (Normalization) => consistency
+     **Trade off between query performance and consistency
+  -Using Embedded Documents (Denormalization) => query performance
+
+  **There is actually no real relationship in mongoDB and NoSQL databases in generel,
+  so, no data integrity enforced in relating one document to ther other
+*/
