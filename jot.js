@@ -261,5 +261,26 @@ create a "views" directory
   -Using Embedded Documents (Denormalization) => query performance
 
   **There is actually no real relationship in mongoDB and NoSQL databases in generel,
-  so, no data integrity enforced in relating one document to ther other
-*/
+  so, no data integrity enforced in relating one document to the other
+
+          REFERENCES
+  let author = {          let course = {
+    name: name                      name: name,
+  }                                 author : authorID  OR authors : [authorID1, authorID2, ...]
+                                 }
+       EMBEDDED                         HYBRID APPROACH
+  let author = {            let author = { name: "Abdullah"  , ...other properties...}
+    name: name              let course = {
+    author: {                           name: courseName,
+      name: authorName                  author: {
+    }                                         name: "Abdullah",
+  }                                           id: ref (authorID)
+                                              }
+                                            }  
+                                            This is particulary useful when you only want to store
+                                            a snapshot of just a property of the author at 
+                                            every point in time while keeping other properties out.
+
+                                            Thus will optimize the query performance while giving enough
+                                            data to be known
+                                            */
