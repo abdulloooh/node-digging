@@ -67,6 +67,21 @@ async function updateAuthorOnCourse(courseId) {
   log(result);
 }
 
+async function removeAuthor(courseId, authorId) {
+  const course = await Course.findById(courseId);
+  const author = course.authors.id(authorId);
+
+  author.remove();
+
+  const result = await result.save();
+  log(course);
+}
+
+async function listCourses() {
+  const course = await Course.find();
+  log(course);
+}
+
 function log(message) {
   console.log(message);
 }
@@ -76,4 +91,8 @@ function log(message) {
 //   new Author({ name: "Abdu", bio: "Software Developer" })  // [new Author({...}), new Author({...})]
 // );
 
-updateAuthorOnCourse("5f3460a9367a7419df675392");
+// updateAuthorOnCourse("5f3460a9367a7419df675392");
+
+// listCourses();
+
+remiteAuthor("5f3460a9367a7419df675392", "--objectdo");
