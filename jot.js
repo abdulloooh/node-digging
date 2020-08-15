@@ -284,3 +284,5 @@ create a "views" directory
                                             Thus will optimize the query performance while giving enough
                                             data to be known
                                             */
+
+//Transaction or two-way commits => can use Fawn library but not effective yet for me

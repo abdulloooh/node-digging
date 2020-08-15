@@ -95,4 +95,4 @@ function log(message) {
 
 // listCourses();
 
-remiteAuthor("5f3460a9367a7419df675392", "--objectdo");
+removeAuthor("5f3460a9367a7419df675392", "--authorID--");
