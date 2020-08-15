@@ -286,3 +286,11 @@ create a "views" directory
                                             */
 
 //Transaction or two-way commits => can use Fawn library but not effective yet for me
+
+//Authentication and Authorization
+/*
+Authenticaton is ensuring user is who they say they are, validating them
+Authorization is checking if a user has the right permission to make some changes or do some things
+*/
+
+//.email() attached to joi to ensure valid email
