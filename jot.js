@@ -294,3 +294,61 @@ Authorization is checking if a user has the right permission to make some change
 */
 
 //.email() attached to joi to ensure valid email
+
+/*
+  using bcrypt
+  ===Registration===
+  bcrypt.genSalt(10 [the giher d no the better, but the slower])                                      
+  bcrypt.hash(-d password- , -the salt from above-)
+  the salt is simple prepended to the hashed password
+
+  ===Logging in===
+  bcrypt.compare(incoming password, savedPassword)
+  it simple uses the salt from the saved to hash the incoming and then compare
+
+  All bcrypt method returns promise (is used as async which is default)
+*/
+
+//JWT
+//JWT uses a dev defined private key as digital signature for the returned jwt to client
+//The digital sig is generated from the two other parts of the jwt which must match with
+//the private key when returned. So, any alteration in it will not verify
+
+//=====Refactoring jwt generation===
+//----Information expert principle---
+//An object that has enough information an expert in an area should be the one responsible
+//for making decision and performing tasks
+
+//process.exit(x) . Apart from x = 0, any other value terminates the program
+
+//Arrow fcn should not be avoided ==this== keyword is needed
+//and generally, arrow fcn is used as standalone fcn when ==this== is needed
+//not as a method in an object because arrow function do not have its own ==this==
+
+//Don't ever store any secure in your codebase eg jwt_secureKey or jst_privateKey
+
+//Login,authentication
+/*
+When user logs in, return his jwt but don't store it
+Whenever he needs to make request that should be authenticated, he has to send the token on the header
+Verify the token in your auth middleware function and get the data content
+
+So, do not ever store token in database, if it is a must, hash it
+
+==Logging out user===
+Client side should be in charge of token and when user logs out, delete it
+
+You can protect routes in two ways
+1. Protect entire endpoint like "/" "/api/users" by requesting auth middleware before any sub-route
+2. Pass auth middleware as second argument to route handler in the protected routes
+*/
+
+//Use jwt debugger to view jwt tokens @ jwt.io
+
+//status codes
+/*
+400: Bad request
+401: Unauthorized
+403: Forbidden 
+404: Not Found
+*/

@@ -1,5 +1,5 @@
 const debug = require("debug")("app:index");
-// const failLog = require("debug")("app:fail");s
+// const failLog = require("debug")("app:fail")
 // const portLog = require("debug");
 const express = require("express");
 const helmet = require("helmet");
