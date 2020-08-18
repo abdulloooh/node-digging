@@ -352,3 +352,18 @@ You can protect routes in two ways
 403: Forbidden 
 404: Not Found
 */
+
+//Winston npm noduel ===Transport (storage device for your logs)====
+// === Logging levels(severity of ex eg error,infor,warning, debug)====
+
+/*
+const levels = { 
+  error: 0,
+  warn: 1,
+  info: 2,
+  http: 3,
+  verbose: 4,
+  debug: 5,
+  silly: 6
+};
+*/
