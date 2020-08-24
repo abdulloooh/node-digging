@@ -401,4 +401,7 @@ Chai 	Mocha  	Sinon
   So, with test; you can easily and confidently refactor ur code and test at one go
 
   test should never be too specific (rigid) not too general (dynamic)
+
+  ====toEqual OR toBe====
+  toEqual recursively checks every field of an object or array.
 */

@@ -32,7 +32,30 @@ describe("absolute", () => {
 
 describe("greet", () => {
   it("should return greeting with ${name}", () => {
-    // expect(lib.greet("Abdullah")).toContain("Abdullah");
+    expect(lib.greet("Abdullah")).toContain("Abdullah"); // OR next line
     expect(lib.greet("Abdullah")).toMatch(/Abdullah/);
+  });
+});
+
+describe("getCurrencies", () => {
+  it("should contain the allowed currencies", () => {
+    const result = lib.getCurrencies();
+
+    //too general
+    expect(result).toBeDefined();
+    expect(result).not.toBeNull();
+
+    //too specific
+    expect(result[0]).toBe("USD");
+    expect(result[1]).toBe("AUD");
+    expect(result[2]).toBe("EUR");
+
+    //proper
+    expect(result).toContain("AUD");
+    expect(result).toContain("USD");
+    expect(result).toContain("EUR");
+
+    //ideal
+    expect(result).toEqual(expect.arrayContaining(["EUR", "USD", "AUD"])); //does not check order
   });
 });
