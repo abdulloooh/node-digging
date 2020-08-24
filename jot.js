@@ -395,4 +395,10 @@ Chai 	Mocha  	Sinon
   call aa function, pass arg
   make an assertion on the result using natural functions: check jest matchers 
   https://jestjs.io/docs/en/using-matchers
+
+  Unit tests help to refactor code with confidence because the expected output are fixed.
+  So, no matter how you architect the code, test must pass
+  So, with test; you can easily and confidently refactor ur code and test at one go
+
+  test should never be too specific (rigid) not too general (dynamic)
 */

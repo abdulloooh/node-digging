@@ -29,3 +29,10 @@ describe("absolute", () => {
     expect(result).toBe(0);
   });
 });
+
+describe("greet", () => {
+  it("should return greeting with ${name}", () => {
+    // expect(lib.greet("Abdullah")).toContain("Abdullah");
+    expect(lib.greet("Abdullah")).toMatch(/Abdullah/);
+  });
+});
