@@ -59,3 +59,27 @@ describe("getCurrencies", () => {
     expect(result).toEqual(expect.arrayContaining(["EUR", "USD", "AUD"])); //does not check order
   });
 });
+
+describe("getProduct", () => {
+  it("should return product object with given productId and price", () => {
+    const result = lib.getProduct(1);
+
+    expect(result).toEqual(
+      //toBe will fail cos it will expect received and test value to be at same location in memory which is not since object is a reference type
+      expect.objectContaining({
+        price: expect.any(Number),
+        id: 1,
+      })
+    );
+
+    //cleaner implementation
+    expect(result).toMatchObject({ price: expect.any(Number), id: 1 });
+
+    //Also
+    expect(result).toHaveProperty("id", 1); //not that typeof the value must match
+    expect(result).toHaveProperty("price", expect.any(Number)); //not that typeof the value must match
+
+    //for deep referencing
+    //expect(houseForSale).toHaveProperty('kitchen.area', 20);
+  });
+});
