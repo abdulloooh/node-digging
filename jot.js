@@ -367,3 +367,32 @@ const levels = {
   silly: 6
 };
 */
+
+/*Test
+Unit test: Test a unit of the application WITHOUT its external dependencies[cheap to write, execute fast but less confidence]
+	Exanple: A function, a class, multiple classes etc without external depencies
+Integration test: Tests a class, a function or multiple classes with external dependencies. Takes more time but more reliable
+E2E test: Testing that drives an app through its UI. A popular tool is selenium that records user's activities and can then
+	be replayed. It is very slow but gives max confidence. Also easy to break with any change in UI.
+==Test Pyramid===
+			=E2E=
+		==Integration=
+	=======Unit==========
+UNIT: Quick&easy to write, lest cost,execute quickly, rapid feedback, good for logics and calculations and should often be used but does not give much confidence
+INTEGRATION: Unit is complemented with integration test to test how the app integrate with its external part like db
+E2E: Most reliable and expensive, should only be used for key functions of the app, use it sparingly
+
+FRAMEWORKS
+--------
+		Jasmine
+Chai 	Mocha  	Sinon
+    Jest
+    
+  npm i jest --save-dev
+  naming convention: ${file}.test.js
+  number of unit test to be written should be equal to number of execution oiints
+
+  call aa function, pass arg
+  make an assertion on the result using natural functions: check jest matchers 
+  https://jestjs.io/docs/en/using-matchers
+*/
