@@ -388,7 +388,8 @@ FRAMEWORKS
 Chai 	Mocha  	Sinon
     Jest
     
-  npm i jest --save-dev
+  npm i jest --save-dev    //dev environment only
+
   naming convention: ${file}.test.js
   number of unit test to be written should be equal to number of execution points
 
@@ -408,4 +409,6 @@ Chai 	Mocha  	Sinon
   ---In exception that also has return if not fail, at least 2 tests needed cos of 2 execution pts--
   
   You do not always use single test assertion  
+
+  For continuously running test, simply add flag --watchAll to become script{test:"jest --watchALl"} in package.json
 */
