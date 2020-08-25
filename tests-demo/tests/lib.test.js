@@ -1,5 +1,6 @@
 const lib = require("../lib");
 const db = require("../db");
+const mail = require("../mail");
 
 // test("Absolute - Should return a positive number for positive input", () => {
 //   const result = lib.absolute(1);
@@ -132,5 +133,22 @@ describe("applyDiscount", () => {
     const order = { customerId: 1, totalPrice: 10 };
     lib.applyDiscount(order);
     expect(order.totalPrice).toBe(9);
+  });
+});
+
+describe("notifyCustomer", () => {
+  it("Send success email to the customer's mail", () => {
+    db.getCustomerSync = function (id) {
+      console.log("Fake reading from database...");
+      return { id: id, email: "abdu@a.com" };
+    };
+
+    mail.send = function (email, message) {
+      return true;
+    };
+
+    const order = { customerId: 1 };
+
+    expect(lib.notifyCustomer(order)).toBe(true);
   });
 });
