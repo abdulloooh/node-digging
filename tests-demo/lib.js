@@ -1,3 +1,5 @@
+const db = require("./db");
+
 //Testing numbers
 module.exports.absolute = function (number) {
   //   if (number > 0) return number;
@@ -30,4 +32,22 @@ module.exports.registerUser = function (username) {
   if (!username) throw new Error("Username is required");
 
   return { id: new Date().getTime(), username: username };
+};
+
+//Testing fizzbuzz
+module.exports.fizzbuzz = function (n) {
+  if (typeof n !== "number") throw new Error("Input should be a Number");
+
+  by3 = n % 3;
+  by5 = n % 5;
+
+  return by3 === 0 ? (by5 === 0 ? "FizzBuzz" : "fizz") : by5 === 0 ? "Buzz" : n;
+};
+
+//Testing dependency and also async
+//Mock functions
+module.exports.applyDiscount = function (order) {
+  const customer = db.getCustomerSync(order.customerId);
+
+  if (customer.points > 10) order.totalPrice *= 0.9;
 };

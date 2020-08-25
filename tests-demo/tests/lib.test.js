@@ -1,4 +1,5 @@
 const lib = require("../lib");
+const db = require("../db");
 
 // test("Absolute - Should return a positive number for positive input", () => {
 //   const result = lib.absolute(1);
@@ -98,5 +99,38 @@ describe("registerUser", () => {
     const result = lib.registerUser("Abdullah");
     expect(result.id).toBeGreaterThan(0);
     expect(result).toHaveProperty("username", "Abdullah");
+  });
+});
+
+describe("fizzbuzz", () => {
+  it("throw error if input is not a number", () => {
+    const notNumbers = [NaN, "10", "", null, undefined, 0];
+    for (let el of notNumbers)
+      expect(() => {
+        lib.fizzbuzz(el).toThrowError(/number/i);
+      });
+  });
+
+  it("return fizz if divisible by only 3, buzz if by 5, fizzbuzz if by both and the number is by none", () => {
+    expect(lib.fizzbuzz(3)).toMatch(/^fizz$/i);
+    expect(lib.fizzbuzz(5)).toMatch(/^buzz$/i);
+    expect(lib.fizzbuzz(15)).toMatch(/^fizzbuzz$/i);
+    expect(lib.fizzbuzz(7)).toBe(7);
+
+    //Well, you can actually seperate these tests up here in different entitities and test seperately
+    //It is even probably best practice but imo this is simple and suffice for now
+  });
+});
+
+describe("applyDiscount", () => {
+  it("give 10% discount if points is greater than 10", () => {
+    db.getCustomerSync = function (id) {
+      console.log("Fake reading from database...");
+      return { id: id, points: 11 };
+    };
+
+    const order = { customerId: 1, totalPrice: 10 };
+    lib.applyDiscount(order);
+    expect(order.totalPrice).toBe(9);
   });
 });
