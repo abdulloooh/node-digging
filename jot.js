@@ -390,7 +390,7 @@ Chai 	Mocha  	Sinon
     
   npm i jest --save-dev
   naming convention: ${file}.test.js
-  number of unit test to be written should be equal to number of execution oiints
+  number of unit test to be written should be equal to number of execution points
 
   call aa function, pass arg
   make an assertion on the result using natural functions: check jest matchers 
@@ -404,4 +404,8 @@ Chai 	Mocha  	Sinon
 
   ====toEqual OR toBe====
   toEqual recursively checks every field of an object or array.
+
+  ---In exception that also has return if not fail, at least 2 tests needed cos of 2 execution pts--
+  
+  You do not always use single test assertion  
 */

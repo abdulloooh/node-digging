@@ -83,3 +83,20 @@ describe("getProduct", () => {
     //expect(houseForSale).toHaveProperty('kitchen.area', 20);
   });
 });
+
+describe("registerUser", () => {
+  it("throw error when username parameter is falsy", () => {
+    const falsy = [NaN, "", null, undefined, 0];
+    for (let el of falsy) {
+      expect(() => {
+        lib.registerUser(el);
+      }).toThrowError(/username/i);
+    }
+  });
+
+  it("return username object when username is supplied", () => {
+    const result = lib.registerUser("Abdullah");
+    expect(result.id).toBeGreaterThan(0);
+    expect(result).toHaveProperty("username", "Abdullah");
+  });
+});
