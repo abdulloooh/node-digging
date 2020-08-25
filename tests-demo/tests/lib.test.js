@@ -138,17 +138,19 @@ describe("applyDiscount", () => {
 
 describe("notifyCustomer", () => {
   it("Send success email to the customer's mail", () => {
-    db.getCustomerSync = function (id) {
-      console.log("Fake reading from database...");
-      return { id: id, email: "abdu@a.com" };
-    };
-
-    mail.send = function (email, message) {
-      return true;
-    };
+    const customer = { id: 1, email: "abdu@a.com" };
+    db.getCustomerSync = jest.fn().mockReturnValue(customer);
+    mail.send = jest.fn();
 
     const order = { customerId: 1 };
+    lib.notifyCustomer(order);
 
-    expect(lib.notifyCustomer(order)).toBe(true);
+    expect(db.getCustomerSync).toHaveBeenCalled();
+    expect(db.getCustomerSync).toHaveBeenCalledWith(1);
+    expect(mail.send).toHaveBeenCalled();
+    // expect(mail.send)..toHaveBeenCalledWith(arg1, arg2, ...)
+    //but the arguments are string, so should not br rigid
+    expect(mail.send.mock.calls[0][0]).toBe(customer.email);
+    expect(mail.send.mock.calls[0][1]).toMatch(/order/i);
   });
 });

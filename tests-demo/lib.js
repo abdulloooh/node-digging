@@ -56,6 +56,5 @@ module.exports.applyDiscount = function (order) {
 //
 module.exports.notifyCustomer = function (order) {
   const customer = db.getCustomerSync(order.customerId);
-  const done = mail.send(customer.email, "Your order was processed succefully");
-  return done;
+  mail.send(customer.email, "Your order was processed succefully");
 };
