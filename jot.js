@@ -411,4 +411,38 @@ Chai 	Mocha  	Sinon
   You do not always use single test assertion  
 
   For continuously running test, simply add flag --watchAll to become script{test:"jest --watchALl"} in package.json
-*/
+
+
+  ===WHen not to use unit test
+  When there is a lot of mocking(fat unit tests and unmaintainable), go for integration
+  Use unit test for testing functions with algorithm only with zero of 
+  minumum dependency to external resources
+  Avoid creating too many mocks
+
+  Test suite is a container for multiple tests===>describe
+  */
+
+/*
+    Deployment
+    >Paas   >Docker
+    __PaaS___
+    If you do not wana get involved with infrastructures, you do not wana worry about servers,
+    load balancers, reversers, restarting app on crash
+    Examples: Heroku, AWS, GCP, Azure
+
+    __Docker___
+    Deploying on your webservers, this is the best option cos you can easily create
+    an image of your own server
+
+    ===HEROKU===
+    1. Install these npm modules: helmet, compression
+    ==helmet protect express apps from well known volnerability by setting various http-headers
+    ==compression compresses http response to client
+
+    2. In package.json
+      - Set "start" in scripts to "node index.js" or whatever your entry point is
+      - Set add engines object and set "node" to version being used 
+      ===get version by node -v
+
+    3. Ignore whatever is needed before pushing to git eg node_modules, coverage
+  */
